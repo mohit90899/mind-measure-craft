@@ -1,5 +1,4 @@
-
-import { PersonalityTrait, PersonalityTraitDescription, QuestionType } from "@/types";
+import { PersonalityTrait, PersonalityTraitDescription, QuestionType, UserAnswer, TestResults } from "@/types";
 
 export const questions: QuestionType[] = [
   {
