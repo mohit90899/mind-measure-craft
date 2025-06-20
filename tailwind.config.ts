@@ -63,6 +63,27 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				},
+				positivity: {
+					cream: {
+						light: '#FFFEF7',
+						DEFAULT: '#FFF8E1',
+						dark: '#F5F0D8'
+					},
+					brown: {
+						light: '#D7CCC8',
+						DEFAULT: '#8D6E63',
+						dark: '#5D4037'
+					},
+					yellow: {
+						light: '#FFF9C4',
+						DEFAULT: '#FFF176',
+						dark: '#F9A825'
+					},
+					white: {
+						DEFAULT: '#FFFFFF',
+						warm: '#FEFEFE'
+					}
+				},
 				test: {
 					blue: {
 						light: '#E6F3FF',
