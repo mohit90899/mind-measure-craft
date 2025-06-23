@@ -1,8 +1,9 @@
-
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { PrinciplesAssessmentResult } from "@/types/principles";
 import CircularProgress from "@/components/CircularProgress";
+import QuestionBreakdown from "@/components/QuestionBreakdown";
+import { mockQuestions, mockAnswers } from "@/data/mockQuestionData";
 import { Download, Share2, FileText, Heart } from "lucide-react";
 
 interface PrinciplesReportProps {
@@ -225,6 +226,17 @@ const PrinciplesReport = ({ result }: PrinciplesReportProps) => {
                 </div>
               ))}
             </div>
+          </CardContent>
+        </Card>
+
+        {/* Detailed Question Breakdown */}
+        <Card className="bg-positivity-white border-positivity-brown-light">
+          <CardHeader className="bg-gradient-to-r from-positivity-brown to-positivity-brown-dark text-white">
+            <CardTitle className="text-2xl">Detailed Question Analysis</CardTitle>
+            <p className="text-positivity-cream">Your responses to each assessment question</p>
+          </CardHeader>
+          <CardContent className="p-8">
+            <QuestionBreakdown answers={mockAnswers} questions={mockQuestions} />
           </CardContent>
         </Card>
 

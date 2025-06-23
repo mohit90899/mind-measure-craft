@@ -8,6 +8,18 @@ interface CircularProgressProps {
   label: string;
 }
 
+const getScoreColor = (percentage: number) => {
+  if (percentage >= 71) return '#22c55e'; // Green for strong areas
+  if (percentage >= 41) return '#eab308'; // Yellow for developing areas
+  return '#ef4444'; // Red for areas needing attention
+};
+
+const getScoreColorLight = (percentage: number) => {
+  if (percentage >= 71) return '#dcfce7'; // Light green
+  if (percentage >= 41) return '#fef3c7'; // Light yellow
+  return '#fecaca'; // Light red
+};
+
 const CircularProgress = ({ 
   percentage, 
   size = 80, 
@@ -17,6 +29,8 @@ const CircularProgress = ({
   const radius = (size - strokeWidth) / 2;
   const circumference = radius * 2 * Math.PI;
   const strokeDasharray = `${(percentage / 100) * circumference} ${circumference}`;
+  const strokeColor = getScoreColor(percentage);
+  const bgColor = getScoreColorLight(percentage);
 
   return (
     <div className="flex flex-col items-center space-y-2">
@@ -30,7 +44,7 @@ const CircularProgress = ({
             cx={size / 2}
             cy={size / 2}
             r={radius}
-            stroke="#F5F0D8"
+            stroke={bgColor}
             strokeWidth={strokeWidth}
             fill="transparent"
           />
@@ -38,7 +52,7 @@ const CircularProgress = ({
             cx={size / 2}
             cy={size / 2}
             r={radius}
-            stroke="#8D6E63"
+            stroke={strokeColor}
             strokeWidth={strokeWidth}
             fill="transparent"
             strokeDasharray={strokeDasharray}
